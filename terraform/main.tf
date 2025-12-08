@@ -4,9 +4,9 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "=4.1.0"
     }
-    time = {
-      source  = "hashicorp/time"
-      version = "~> 0.9"
+    github = {
+      source  = "integrations/github"
+      version = "=6.9.0"
     }
     azuread = {
       source  = "hashicorp/azuread"
@@ -27,4 +27,19 @@ provider "azurerm" {
   }
 }
 
+provider "github" {
+  token = var.github_token
+}
+
+data "azurerm_client_config" "current" {}
+
 data "azuread_client_config" "current" {}
+
+data "github_repository" "petstore-repo" {
+  full_name = var.github_repo
+}
+
+resource "azurerm_resource_group" "petstore-rg" {
+  name     = var.resource_group_name
+  location = var.location
+}

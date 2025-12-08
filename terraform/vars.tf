@@ -5,5 +5,10 @@ variable "resource_group_name" {
 
 variable "github_repo" {
   type    = string
-  default = "Mdanic75/resume-challenge"
+  default = "Mdanic75/azure-petstore"
+}
+
+variable "location" {
+  type    = string
+  default = "westeurope"
 }
