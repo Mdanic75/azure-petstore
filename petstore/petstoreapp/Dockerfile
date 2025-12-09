@@ -26,3 +26,4 @@ COPY --from=build /build/target/*.jar /app/petstoreapp.jar
 COPY applicationinsights.json /app/applicationinsights.json
 
 ENTRYPOINT ["/bin/bash", "-c", "/usr/sbin/sshd && java -javaagent:applicationinsights-agent-3.4.12.jar -jar petstoreapp.jar"]
+
