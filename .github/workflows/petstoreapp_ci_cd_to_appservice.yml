@@ -10,6 +10,9 @@ on:
       
 jobs:
   build:
+    permissions:
+      id-token: write  # Enables OIDC token fetching from GitHub
+      contents: read  
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
